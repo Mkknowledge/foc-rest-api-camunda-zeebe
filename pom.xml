@@ -11,23 +11,12 @@
 	<groupId>com.mkknowledge.foc</groupId>
 	<artifactId>rest-api-camunda-zeebe</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>foc-rest-api-camunda-zeebe</name>
 	<description>REST API for Camunda/Zeebe workflows</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<resilience-4j.version>2.0.2</resilience-4j.version>
+		<keyclock-admin-client.version>21.0.1</keyclock-admin-client.version>
+		<jsonschema2pojo-core.version>1.2.1</jsonschema2pojo-core.version>
 	</properties>
 	<dependencies>
 		<dependency>

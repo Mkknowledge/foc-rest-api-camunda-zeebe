@@ -1,0 +1,43 @@
+config:
+  host:
+  clientId: orchestration
+  clientSecret:
+  keyCloakTokenUrl:
+
+camunda:
+  client:
+    enabled: true
+    requestTimeout: PT60S
+    mode: self-managed
+    auth:
+      method:
+      client-id: ${config.clientId}
+      client-secret: ${config.clientSecret}
+      token-url:
+      audience: zeebe-api
+
+    grpc-address:
+    rest-address:
+    prefer-rest-over-grpc: true
+    tenant-ids:
+
+  operate:
+    url:
+    clientId: ${config.clientId}
+    clientSecret: ${config.clientSecret}
+    keyCloakTokenUrl: ${config.keyCloakTokenUrl}
+
+  tasklist:
+    url:
+    clientId: ${config.clientId}
+    clientSecret: ${config.clientSecret}
+    keyCloakTokenUrl: ${config.keyCloakTokenUrl}
+
+  identity:
+    url:
+    clientId: ${config.clientId}
+    clientSecret: ${config.clientSecret}
+    keyCloakTokenUrl: ${config.keyCloakTokenUrl}
+    authEnabled: false
+    fetchInterval: 3600000
+    whiteListTenants:

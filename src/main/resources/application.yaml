@@ -1,6 +1,29 @@
-spring:
-  application:
-    name: foc-rest-api-camunda-zeebe
+server:
+  port: 8080
+  servlet:
+    context-path: /foc/rest
+
+camunda:
+  client:
+    zeebe:
+      enabled: false
+
 logging:
   pattern:
+    #correlation: "[${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
     console: "%d{HH:mm:ss.SSS} %-5level %class{0} - %msg%n"
+
+spring:
+  application:
+    name: 'foc-rest-api-camunda'   # Name of the Spring Boot application (used in logs, tracing, actuator)
+  profiles:
+    active: local                  # Sets the active profile to "local" (loads application-local.yaml)
+  main:
+    allow-circular-references: true   # Allows Spring to create circular bean dependencies (not recommended but sometimes required)
+    lazy-initialization: false        # Disables lazy initialization; beans load at startup for faster runtime performance
+  logging:
+    level: DEBUG                     # Sets default logging level for the app to DEBUG
+    root: DEBUG                      # Sets root logger level to DEBUG for all packages
+    org.springframework.web.client.RestTemplate: DEBUG   # Enables DEBUG logs specifically for RestTemplate calls
+    org.apache.http: DEBUG           # Enables DEBUG logging for Apache HTTP client (useful for low-level HTTP debugging)
+    httpclient.wire: DEBUG           # Enables wire-level HTTP logs (raw request/response details)

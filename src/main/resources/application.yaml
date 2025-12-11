@@ -1,3 +1,6 @@
 spring:
   application:
     name: foc-rest-api-camunda-zeebe
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level %class{0} - %msg%n"
